@@ -43,6 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_05_222417) do
   end
 
   create_table "venues", force: :cascade do |t|
+    t.string "title", null: false
     t.string "address"
     t.string "description"
     t.string "img_url"
