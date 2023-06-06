@@ -1,7 +1,17 @@
 <h1>Venues#index</h1>
-<ul>
-<% @venues.each do |venue| %>
- <%= link_to venue.title, venue_path(venue) %><hr>
- <% end %>
-
-</ul>
+<div class="container">
+  <div class="row">
+    <% @venues.each do |venue| %>
+      <div class="col-md-4">
+        <div class="card md-4" >
+          <img src="<%= venue.img_url %>" class="card-img-top" alt="Listing Image">
+          <div class="card-body">
+            <h5 class="card-title"><%= venue.title %></h5>
+            <p class="card-text"><%= venue.daily_rate %></p>
+            <a href="#" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
