@@ -10,7 +10,7 @@ user_1 = User.create!(
   first_name: "John",
   last_name: "Doe",
   birthdate: Date.parse("1982-01-04"),
-  profile_img_url: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg",
+  profile_img_url: "https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg",
   email: "john@example.com",
   password: "querty",
   encrypted_password: "qwerty",
