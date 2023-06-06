@@ -7,8 +7,8 @@
           <img src="<%= venue.img_url %>" class="card-img-top" alt="Listing Image">
           <div class="card-body">
             <h5 class="card-title"><%= venue.title %></h5>
-            <p class="card-text"><%= venue.daily_rate %></p>
-            <a href="#" class="btn btn-primary">View Details</a>
+            <p class="card-text">$<%= venue.daily_rate %></p>
+            <%= link_to "details", venue_path(venue), class: "btn btn-outline-success" %>
           </div>
         </div>
       </div>
