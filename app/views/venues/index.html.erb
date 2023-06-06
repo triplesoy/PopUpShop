@@ -1,5 +1,7 @@
 <h1>Venues#index</h1>
 <ul>
-
+<% @venues.each do |venue| %>
+<% link_to_venue.description, venue_path(venue) %>
+<% end %>
 
 </ul>
