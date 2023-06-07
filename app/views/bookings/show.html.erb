@@ -9,7 +9,7 @@
       </div>
     </div>
   </div>
-  <%= link_to "My bookings", venue_bookings_path, class: "btn btn-outline-success" %>
+  <%= link_to "My bookings", my_bookings_path, class: "btn btn-outline-dark" %>
   <%= link_to "Delete",venue_booking_path(@venue.id, @booking.id), class: "btn btn-outline-danger",
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
 </div>
