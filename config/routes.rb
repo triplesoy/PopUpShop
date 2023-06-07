@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :venues do
     resources :bookings
   end
+  get "my_bookings", to: "bookings#my_bookings", as: :my_bookings
 end
