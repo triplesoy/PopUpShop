@@ -13,7 +13,11 @@
         <%= simple_form_for [@venue, @booking] do |f| %>
           <%= f.input :start_date, placeholder: 'FROM' %>
           <%= f.input :end_date, placeholder: 'to' %>
+          <% if current_user %>
           <%= f.submit class: "btn btn-outline-success" %>
+          <% else %>
+          <%= link_to "book", new_user_session_path, class: "btn btn-outline-success" %>
+          <% end %>
         <% end %>
       </div>
     </div>

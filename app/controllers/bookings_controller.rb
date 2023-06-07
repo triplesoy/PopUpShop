@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  before_action :set_venue, only: [:new, :create, :edit, :update, :show]
+  before_action :set_booking
   def show
   end
 
@@ -9,8 +11,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @venue = Venue.find(params[:venue_id])
-    @booking.venue = @venue
+    @booking.venue = Venue.find(params[:venue_id])
     @booking.user = current_user
     if @booking.save!
       # Booking saved successfully
@@ -29,6 +30,8 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @booking.destroy
+    redirect_to venues_path, status: :see_other
   end
 
   private
