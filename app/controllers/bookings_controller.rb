@@ -34,6 +34,10 @@ class BookingsController < ApplicationController
     redirect_to venues_path, status: :see_other
   end
 
+  def my_bookings
+    @my_bookings = current_user.bookings
+  end
+
   private
 
   def set_booking
