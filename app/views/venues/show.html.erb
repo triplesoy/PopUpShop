@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Venues#show</h1>
+  <h1><%= @venue.title %></h1>
   <div class="row">
       <div class="col-12 col-lg-8 my-3">
         <div class="card">
@@ -20,7 +20,7 @@
           <%= f.input :start_date, as: :date %>
           <%= f.input :end_date, placeholder: 'to' %>
           <% if current_user %>
-          <%= f.submit class: "btn btn-outline-success" %>
+          <%= f.submit class: "btn btn-outline-dark" %>
           <% else %>
           <%= link_to "book", new_user_session_path, class: "btn btn-outline-success" %>
           <% end %>
@@ -28,10 +28,10 @@
         </div>
       </div>
     </div>
-    <%= link_to "Edit", edit_venue_path(@venue), class: "btn btn-outline-success" %>
-    <%= link_to "Go back", venues_path, class: "btn btn-outline-success" %>
-    <%= link_to "Delete", venue_path(@venue), class: "btn btn-outline-danger",
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-  </div>
+      <%= link_to "Edit", edit_venue_path(@venue), class: "btn btn-outline-dark" %>
+      <%= link_to "Go back", venues_path, class: "btn btn-outline-dark" %>
+      <%= link_to "Delete", venue_path(@venue), class: "btn btn-outline-danger",
+     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+    </div>
 </div>
 <br><br><br>

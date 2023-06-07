@@ -25,3 +25,12 @@ body {
   height: 350px;
   object-fit: cover;
 }
+
+h1 {
+  font-size: 50px;
+  font-weight: 00;
+  background-image: radial-gradient(#553c9a, #ee4b2b);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
