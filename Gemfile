@@ -5,7 +5,7 @@ ruby "3.1.2"
 
 gem "devise"
 
-
+gem 'simple-form-datepicker'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.5"
 
