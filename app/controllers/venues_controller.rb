@@ -1,5 +1,5 @@
 class VenuesController < ApplicationController
-  before_action :set_venue, only: [:new, :create, :edit, :update, :show]
+  before_action :set_venue, only: [:create, :edit, :update, :show]
   before_action :set_booking, only: :destroy
 
   def index
@@ -24,6 +24,8 @@ class VenuesController < ApplicationController
   end
 
   def update
+    @venue.update(venue_params)
+    redirect_to venue_path(@venue)
   end
 
   def destroy
@@ -34,7 +36,6 @@ class VenuesController < ApplicationController
   private
 
   def set_venue
-
     @venue = Venue.find(params[:id])
   end
 
