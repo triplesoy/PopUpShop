@@ -83,4 +83,4 @@ production:
   <<: *default
   database: PopUpShop_production
   username: PopUpShop
-  password: <%= ENV["PopUpShop_DATABASE_PASSWORD"] %>
+  password: f141a7d02eccaed5f3328d17867bacd872b74ef2416fdcec545ac895a971625b
