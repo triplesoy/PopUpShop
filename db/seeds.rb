@@ -12,8 +12,8 @@ user_1 = User.create!(
   birthdate: Date.parse("1982-01-04"),
   profile_img_url: "https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg",
   email: "john@example.com",
-  password: "querty",
-  encrypted_password: "qwerty",
+  password: "qwerty",
+  password_confirmation: "qwerty",
   created_at: DateTime.now,
   updated_at: DateTime.now
 )
