@@ -23,3 +23,10 @@ venue_2 = Venue.create(title: "Beautiful restaurant in the heart of Mexico", add
 venue_3 = Venue.create(title: "Remodeld night club in a vibrant town", address: "Merida 186, Roma Nte., Cuauhtémoc, 06700 Ciudad Cuauhtémoc, CDMX", description: "Brand new night club designed but renowed Mexican Architect", img_url: "https://static.dezeen.com/uploads/2011/07/dezeen_MN-Roy-Club-by-Emmanuel-Picault-and-Ludwig-Godefroy_15.jpg", surface_area: 900, daily_rate: 3500, venue_type: 'Bar/Club', has_parking: true, has_internet: true, has_ac: true, user_id: 1)
 venue_4 = Venue.create(title: "Large store in Mexico City", address: "Frontera 168, Roma Nte., Cuauhtémoc, 06700 Ciudad de México, CDMX", description: "Spacious storefront ready to use, in the heart of Roma Norte", img_url: "https://thumbs.dreamstime.com/b/interior-store-empty-shelves-d-image-95230796.jpg", surface_area: 2300, daily_rate: 1800, venue_type: "Storefront", has_parking: false, has_internet: true, has_ac: true, user_id: 1)
 venue_5 = Venue.create(title: "Amazing rooftop with views", address: "Av. Álvaro Obregón 182, Roma Nte., Cuauhtémoc, 06700 Ciudad de México, CDMX", description: "Beautiful rooftop with a view of the city", img_url: "https://media.timeout.com/images/105813983/image.jpg", surface_area: 500, daily_rate: 2500, venue_type: "Bar/club", has_parking: false, has_internet: true, has_ac: true, user_id: 1)
+
+
+
+booking_1 = Booking.create(start_date: Date.parse("2021-06-06"), end_date: Date.parse("2021-06-08"), total_price: 1300, user_id: 1, venue_id: 1)
+booking_2 = Booking.create(start_date: Date.parse("2021-06-06"), end_date: Date.parse("2021-06-08"), total_price: 4400, user_id: 1, venue_id: 2)
+booking_3 = Booking.create(start_date: Date.parse("2021-06-06"), end_date: Date.parse("2021-06-08"), total_price: 7000, user_id: 1, venue_id: 3)
+booking_4 = Booking.create(start_date: Date.parse("2021-06-06"), end_date: Date.parse("2021-06-08"), total_price: 3600, user_id: 1, venue_id: 4)
