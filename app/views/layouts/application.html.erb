@@ -38,14 +38,16 @@
         </div>
       </form> %>
 
-
 <% if user_signed_in? %> <!-- Added this if statement -->
       <ul class="navbar-nav mb-2 mb-lg-0"> <!-- Added this ul element -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Hi  <%= current_user.email %>
-            <img src="profile-logo.png" alt="Profile Logo" class="profile-logo"> <!-- Added profile logo -->
-            My Account
+                Hi <%= current_user.first_name %>!
+        <% if current_user.profile_img_url.present? %>
+          <img src="<%= current_user.profile_img_url %>" alt="Profile Picture" class="rounded-circle" style="width: 40px; height: 40px;">
+        <% else %>
+        <img src="<%= asset_path('profile-icon-9.png') %>" alt="Profile Logo" class="rounded-circle" style="width: 40px; height: 40px;">
+      <% end %>
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Profile</a></li>
