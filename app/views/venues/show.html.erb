@@ -1,21 +1,37 @@
-<h1>Venues#show</h1>
-<p>Find me in app/views/venues/show.html.erb</p>
-<%= link_to "go back", venues_path, class: "btn btn-outline-success" %>
-<%= link_to "Delete",
-  venue_path(@venue), class: "btn btn-outline-danger",
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-  <br><br><br>
-<div class="container py-5">
+<div class="container">
+  <h1>Venues#show</h1>
   <div class="row">
-    <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white rounded p-3 shadow">
-        <h3>Add a booking to <%= @venue.title%> </h3>
-        <%= simple_form_for [@venue, @booking] do |f| %>
-          <%= f.input :start_date, placeholder: 'FROM' %>
-          <%= f.input :end_date, placeholder: 'to' %>
-          <%= f.submit class: "btn btn-outline-success" %>
-        <% end %>
+    <div class="col-12 col-lg-8 my-3">
+      <div class="card">
+        <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));">
+          <img src="<%= @venue.img_url %>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
       </div>
     </div>
+    <div class="col-12 col-lg-4 my-3">
+        <div class="bg-white rounded p-3 shadow">
+          <h3>Add a booking to <%= @venue.title%> </h3>
+          <%= simple_form_for [@venue, @booking] do |f| %>
+            <%= f.input :start_date, as: :date %>
+            <%= f.input :end_date, placeholder: 'to' %>
+            <% if current_user %>
+            <%= f.submit class: "btn btn-outline-success" %>
+            <% else %>
+            <%= link_to "book", new_user_session_path, class: "btn btn-outline-success" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <%= link_to "Edit", edit_venue_path(@venue), class: "btn btn-outline-success" %>
+    <%= link_to "go back", venues_path, class: "btn btn-outline-success" %>
+    <%= link_to "Delete", venue_path(@venue), class: "btn btn-outline-danger",
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
   </div>
 </div>
+<br><br><br>
