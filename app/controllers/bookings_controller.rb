@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_venue, only: [:new, :create, :edit, :update, :show]
-  before_action :set_booking
+  before_action :set_booking, only: [:show, :destroy]
   def show
   end
 
