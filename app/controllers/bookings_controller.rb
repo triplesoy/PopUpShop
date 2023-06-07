@@ -9,11 +9,12 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @venue = Venue.find(params[:venue_id])
     @booking.venue = @venue
-    @booking.user = current_user #NO CONNECTION BETWEEN USER AND BOOKING HOW TO MAKE VALIDATION OF THE USER AND GET IT TO THE BOOKING PARAMS TO MAKE A NEW ONE
-    if @booking.save
+    @booking.user = current_user
+    if @booking.save!
       # Booking saved successfully
-      redirect_to venue_path(@booking.venue), status: :see_other
+      redirect_to venue_booking_path(@booking.venue, @booking), status: :see_other
     else
       # Booking failed to save
       render :new
@@ -37,7 +38,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :total_price, :user_id, :venue_id)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 
   def set_venue
