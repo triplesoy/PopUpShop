@@ -20,9 +20,7 @@
       <img src="<%= asset_path('popupshop-low-resolution-logo-color-on-transparent-background.png')%>" style="width: 8%; height: auto;" alt="PopUpShop">
     </a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -36,9 +34,9 @@
       </ul>
 
       <% if user_signed_in? %> <!-- Added this if statement -->
-        <ul class="navbar-nav mb-2 mb-lg-0"> <!-- Added this ul element -->
+        <ul class="navbar-nav mb-2 mb-lg-0 "> <!-- Added this ul element -->
           <li class="nav-item dropdown px-4">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Hi <%= current_user.first_name %>!
               <% if current_user.profile_img_url.present? %>
                 <img src="<%= current_user.profile_img_url %>" alt="Profile Picture" class="rounded-circle" style="width: 40px; height: 40px;">
@@ -47,9 +45,9 @@
               <% end %>
             </a>
             <ul class="dropdown-menu ">
-              <li><a class="dropdown-item" href="<%= edit_user_registration_path %>">Profile</a></li>
-              <li><a class="dropdown-item" href=" <%= my_bookings_path %>">My Bookings</a></li>
-              <li><a class="dropdown-item" href="#">My Venues</a></li>
+              <li><a class="dropdown-item text-white" href="<%= edit_user_registration_path %>">Profile</a></li>
+              <li><a class="dropdown-item text-white" href=" <%= my_bookings_path %>">My Bookings</a></li>
+              <li><a class="dropdown-item text-white" href="#">My Venues</a></li>
               <li><hr class="dropdown-divider"></li>
               <li>
                 <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
@@ -61,7 +59,7 @@
         <div class="navbar-nav mb-2 mb-lg-0" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="<%= new_user_session_path %>">Sign-in</a>
+              <a class="nav-link active px-4" aria-current="page" href="<%= new_user_session_path %>">Sign-in</a>
             </li>
           </ul>
         </div>
