@@ -44,12 +44,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_212608) do
 
   create_table "venues", force: :cascade do |t|
     t.string "title", null: false
-    t.string "address"
-    t.string "description"
+    t.string "address", null: false
+    t.string "description", null: false
     t.string "img_url"
-    t.integer "surface_area"
-    t.integer "daily_rate"
-    t.string "venue_type"
+    t.integer "surface_area",  null: false
+    t.integer "daily_rate",  null: false
+    t.string "venue_type",  null: false
     t.boolean "has_parking"
     t.boolean "has_internet"
     t.boolean "has_ac"

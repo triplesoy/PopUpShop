@@ -1,4 +1,8 @@
 class Venue < ApplicationRecord
-  CATEGORIES = ["Bar/Club", "Office", "Restaurant", "Storefront"]
   belongs_to :user
+  validates :title, presence: true
+  validates :address, presence: true
+  validates :description, presence: true
+  validates :surface_area, presence: true
+  validates :daily_rate, presence: true
 end

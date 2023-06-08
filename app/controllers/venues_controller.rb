@@ -1,6 +1,6 @@
 class VenuesController < ApplicationController
-  before_action :set_venue, only: [:create, :edit, :update, :show]
-  before_action :set_booking, only: :destroy
+  before_action :set_venue, only: [ :edit, :update, :show, :destroy ]
+
 
   def index
     @venues = Venue.all
@@ -12,12 +12,18 @@ class VenuesController < ApplicationController
 
   def new
     @venue = Venue.new
+    @categories = ["Bar/Club", "Office", "Restaurant", "Storefront"]
+
   end
 
   def create
     @venue = Venue.new(venue_params)
-    @venue.save
-    redirect_to venues_path, status: :see_other
+    @venue.user = current_user
+    if @venue.save
+      redirect_to venues_path, status: :see_other
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -36,11 +42,11 @@ class VenuesController < ApplicationController
   private
 
   def set_venue
-    @venue = Venue.find(params[:id])
+    @venue = Venue.find_by(id: params[:id])
   end
 
   def venue_params
-    params.require(:booking).permit(:address, :description, :img_url, :surface_area, :daily_rate, :venue_type, :has_parking, :has_internet, :has_ac, :user_id)
+    params.require(:venue).permit(:title, :address, :description, :img_url, :surface_area, :daily_rate, :venue_type, :has_parking, :has_internet, :has_ac)
   end
 
   def set_booking

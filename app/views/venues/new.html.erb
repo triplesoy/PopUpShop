@@ -1,2 +1,37 @@
-<h1>Venues#new</h1>
-<p>Find me in app/views/venues/new.html.erb</p>
+<style>
+.description-input {
+  height: 200px; /* Adjust the height as needed */
+}
+
+.boolean-input-container {
+  display: flex; /* Display the inputs in a flex container */
+}
+
+</style>
+
+<div class="position-relative m-3">
+  <div class="col-12 col-md-6 offset-lg-3">
+    <div class="bg-white rounded p-3 shadow">
+      <h1>List your venue</h1>
+      <%= simple_form_for(@venue) do |f| %>
+        <%= f.input :title %>
+        <%= f.input :address %>
+        <%= f.input :description, as: :text, input_html: { class: 'description-input' } %>
+        <%= f.input :surface_area, label: "Surface area (square meter)" %>
+        <%= f.input :daily_rate %>
+        <%= f.input :venue_type, collection: @categories %>
+
+        <div class="boolean-input-container">
+          <%= f.input :has_parking %>
+          <%= f.input :has_internet %>
+          <%= f.input :has_ac %>
+        </div>
+
+        <%= f.input :img_url %>
+        <%= f.submit %>
+      <% end %>
+
+      <%= link_to "Back", venues_path %>
+    </div>
+  </div>
+</div>
