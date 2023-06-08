@@ -38,11 +38,14 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to venues_path, status: :see_other
+    redirect_to my_bookings_path
   end
 
   def my_bookings
     @my_bookings = current_user.bookings
+    if @my_bookings.empty?
+      redirect_to venues_path, status: :see_other
+    end
   end
 
   def total_price(start_date, end_date, venue)

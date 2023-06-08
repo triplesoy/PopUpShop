@@ -1,0 +1,25 @@
+<div class="container mx-auto mt-4">
+  <div class="row">
+    <% if @my_venues.empty? %>
+
+  <div class="col-12 col-md-6 offset-lg-3">
+    <div class="bg-white rounded p-3 shadow">
+      <h3>You haven't listed any venue yet.<br>Do it by clicking on this link: <br>
+                <%= link_to "List my venue", new_venue_path %>
+
+       </h3>
+    <% else %>
+      <% @my_venues.each do |v| %>
+        <div class="col-lg-3 my-3">
+          <div class="card" style="width: 18rem; height: 22rem;">
+            <img src="<%= v.img_url %>" class="card-img-top" alt="Listing Image">
+            <div class="card-body position-relative">
+              <h5 class="card-title"><%= v.title %></h5>
+              <h6 class="card-subtitle mb-2 text-muted"></h6>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
