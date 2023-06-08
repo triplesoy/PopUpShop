@@ -15,19 +15,28 @@ import { end } from "@popperjs/core"
     const dailyPrice = Number.parseInt(this.priceTarget.innerText, 10)
     const totalPrice = total_days * dailyPrice
 
-    const isStartDateValid = true;
+    const isStartDateValid = true
     const isEndDateValid = startDate <= endDate;
 
     const isDisabled = !isStartDateValid || !isEndDateValid;
     this.submitTarget.disabled = isDisabled;
 
+    const totalPriceElement = this.element.querySelector("#total-price")
+
     const totalPriceField = `
-      €<input id="total-price" class="border-0 bg-transparent" type="text" value="${totalPrice.toFixed(2)}" disabled>
+      <div id="total-price">
+        €<input class="border-0 bg-transparent" type="text" value="${totalPrice.toFixed(2)}" disabled>
+      </div>
     `;
-    if (this.element.querySelector("#total-price")) {
-      this.element.querySelector("#total-price").value = totalPrice;
+
+    if (!isDisabled) {
+      if (totalPriceElement) {
+        totalPriceElement.querySelector("input").value = totalPrice;
+      } else {
+        this.element.insertAdjacentHTML("beforeend", totalPriceField);
+      }
     } else {
-      this.element.insertAdjacentHTML("beforeend", totalPriceField);
+      totalPriceElement.outerHTML = ""
     }
 
     if (!isDisabled) {
