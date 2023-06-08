@@ -1,14 +1,15 @@
 <div class="container col-lg-12 my-3">
   <div class="card my-3">
-    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));">
-      <img src="<%= @venue.img_url %>" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
+    <div class="banner">
+      <img src="<%= @booking.venue.img_url %>" class="card-img-top-banner-img" alt="Listing Image">
     </div>
   </div>
+      <div class="card">
+        <h5 class="card-title"><%= @venue.title %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"></h6>
+        <p class="card-text"><%= @venue.description %></p>
+        <p class="card-text position-absolute bottom-0 start-2 fw-bold"><%= ((@booking.end_date - @booking.start_date).to_i * @booking.venue.daily_rate).to_f %>€</p>
+      </div>
   <%= link_to "My bookings", my_bookings_path, class: "btn btn-outline-dark" %>
   <%= link_to "Delete",venue_booking_path(@venue.id, @booking.id), class: "btn btn-outline-danger",
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>

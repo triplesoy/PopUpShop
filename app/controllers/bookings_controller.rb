@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_venue, only: [:new, :create, :edit, :update, :show]
+  before_action :set_venue, only: [:new, :create, :edit, :update, :show, :total_price]
   before_action :set_booking, only: [:show, :destroy]
 
   def show
@@ -37,6 +37,13 @@ class BookingsController < ApplicationController
 
   def my_bookings
     @my_bookings = current_user.bookings
+  end
+
+  def total_price(start_date, end_date, venue)
+    @booking = booking
+    @venue = venue
+    @total_days = (end_date - start_date).to_i + 1
+    @total_days
   end
 
   private

@@ -1,6 +1,5 @@
-<h1>Venues#index</h1>
-
 <div class="container mx-auto mt-4">
+  <h1>Venues</h1>
   <div class="row">
     <% @venues.each do |venue| %>
       <div class="col-lg-3 my-3">
@@ -9,7 +8,7 @@
           <div class="card-body position-relative">
             <h5 class="card-title"><%= venue.title %></h5>
             <h6 class="card-subtitle mb-2 text-muted"></h6>
-            <p class="card-text">$<%= venue.daily_rate %></p>
+            <p class="card-text" style="position: absolute; bottom: 0; left: 0; margin: 8px;"><%= venue.daily_rate %>€</p>
             <%= link_to "Details", venue_path(venue), class: "btn btn-outline-dark position-absolute bottom-0 end-0 m-2" %>
           </div>
         </div>
