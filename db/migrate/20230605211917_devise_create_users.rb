@@ -6,7 +6,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.string :first_name
       t.string :last_name
       t.date :birthdate
-      t.string :profile_img_url
+
 
 
       ## Database authenticatable

@@ -12,7 +12,7 @@
       <% @my_venues.each do |v| %>
         <div class="col-lg-3 my-3">
           <div class="card" style="width: 18rem; height: 22rem;">
-            <img src="<%= v.img_url %>" class="card-img-top" alt="Listing Image">
+            <img src="<%= cl_image_path v.photos.first.key %>" class="card-img-top" alt="Listing Image">
             <div class="card-body position-relative">
               <h5 class="card-title"><%= v.title %></h5>
               <h6 class="card-subtitle mb-2 text-muted"></h6>

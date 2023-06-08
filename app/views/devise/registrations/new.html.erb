@@ -16,7 +16,7 @@
         <%= f.input :birthdate,
             as: :date,
             required: true %>
-        <%= f.input :profile_img_url %>
+        <%= f.input :avatar, as: :file %>
         <%= f.input :email,
             required: true,
             input_html: { autocomplete: "email" } %>

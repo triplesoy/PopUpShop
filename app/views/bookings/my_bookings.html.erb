@@ -3,7 +3,7 @@
     <% @my_bookings.each do |booking| %>
       <div class="col-lg-3 my-3">
         <div class="card" style="width: 18rem; height: 22rem;">
-          <img src="<%= booking.venue.img_url %>" class="card-img-top" alt="Listing Image">
+          <img src="<%= cl_image_path booking.venue.photos.first.key %>" class="card-img-top" alt="Listing Image">
           <div class="card-body position-relative">
             <h5 class="card-title"><%= booking.venue.title %></h5>
             <h6 class="card-subtitle mb-2 text-muted"></h6>

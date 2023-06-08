@@ -27,7 +27,8 @@
           <%= f.input :has_ac %>
         </div>
 
-        <%= f.input :img_url %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.input :video, as: :file %>
         <%= f.submit %>
       <% end %>
 

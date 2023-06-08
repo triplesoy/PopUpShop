@@ -4,7 +4,11 @@
       <div class="col-12 col-lg-8 my-3">
         <div class="card">
           <div class="banner">
-            <img src="<%= @venue.img_url %>" class="card-img-top" alt="...">
+            <% if @venue.photos.attached? %>
+              <% @venue.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, class: "card-img-top" %>
+              <% end %>
+            <% end %>
             <div class="card-body">
               <h5 class="card-title"><%= @venue.title %></h5>
               <h6 class="card-subtitle mb-2 text-muted"></h6>
