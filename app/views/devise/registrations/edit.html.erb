@@ -17,7 +17,7 @@
       <%= f.input :birthdate,
             as: :date,
             required: true %>
-        <%= f.input :profile_img_url %>
+        <%= f.input :photo, as: :file %>
 
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",

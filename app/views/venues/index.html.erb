@@ -4,7 +4,9 @@
     <% @venues.each do |venue| %>
       <div class="col-lg-3 my-3">
         <div class="card" style="width: 18rem; height: 22rem;">
-          <img src="<%= venue.img_url %>" class="card-img-top" alt="...">
+          <% if venue.photos.attached? %>
+            <img src="<%= cl_image_path venue.photos.first.key %>" class="card-img-top" alt="...">
+          <% end %>
           <div class="card-body position-relative">
             <h5 class="card-title"><%= venue.title %></h5>
             <h6 class="card-subtitle mb-2 text-muted"></h6>
