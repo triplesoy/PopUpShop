@@ -1,5 +1,5 @@
 class VenuesController < ApplicationController
-  before_action :set_venue, only: [ :edit, :update, :show, :destroy ]
+  before_action :set_venue, only: [ :edit, :update, :show, :destroy, :my_venues ]
 
 
   def index
@@ -37,6 +37,10 @@ class VenuesController < ApplicationController
   def destroy
     @venue.destroy
     redirect_to venues_path, status: :see_other
+  end
+
+  def my_venues
+    @my_venues = current_user.venues
   end
 
   private
