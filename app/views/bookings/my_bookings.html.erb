@@ -7,8 +7,8 @@
           <div class="card-body position-relative">
             <h5 class="card-title"><%= booking.venue.title %></h5>
             <h6 class="card-subtitle mb-2 text-muted"></h6>
-           <p class="card-text">$<%= booking.venue.daily_rate %></p>
-            <%= link_to "Details", venue_booking_path(booking, booking.venue), class: "btn btn-outline-dark position-absolute bottom-0 end-0 m-2" %>
+            <p class="card-text position-absolute bottom-0 start-2 fw-bold"><%= ((booking.end_date - booking.start_date).to_i * booking.venue.daily_rate).to_f %>€</p>
+            <%= link_to "Details", venue_booking_path(booking.venue, booking), class: "btn btn-outline-dark position-absolute bottom-0 end-0 m-2" %>
           </div>
         </div>
       </div>
