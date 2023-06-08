@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_venue, only: [:new, :create, :edit, :update, :show, :total_price]
-  before_action :set_booking, only: [:show, :destroy]
+  before_action :set_booking, only: [:show, :destroy, :edit, :update]
 
   def show
   end
@@ -28,6 +28,12 @@ class BookingsController < ApplicationController
   end
 
   def update
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      redirect_to venue_booking_path(@booking.venue, @booking), status: :see_other
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -53,7 +59,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :total_price)
   end
 
   def set_venue
