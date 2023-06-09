@@ -9,6 +9,9 @@
         <h6 class="card-subtitle mb-2 text-muted"></h6>
         <p class="card-text"><%= @venue.description %></p>
         <p class="card-text position-absolute bottom-0 start-2 fw-bold"><%= (((@booking.end_date - @booking.start_date)+1).to_i * @booking.venue.daily_rate).to_f %>€</p>
+          <% if @booking.qrcode.attached? %>
+<%= cl_image_tag(@booking.qrcode.key, width: 300, alt: "QR code for booking") %>
+          <% end %>
 
       </div>
   <%= link_to "My bookings", my_bookings_path, class: "btn btn-outline-dark" %>
