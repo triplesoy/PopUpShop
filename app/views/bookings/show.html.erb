@@ -8,9 +8,18 @@
         <h5 class="card-title"><%= @venue.title %></h5>
         <h6 class="card-subtitle mb-2 text-muted"></h6>
         <p class="card-text"><%= @venue.description %></p>
-        <p class="card-text position-absolute bottom-0 start-2 fw-bold"><%= (((@booking.end_date - @booking.start_date)+1).to_i * @booking.venue.daily_rate).to_f %>€</p>
+        <hr>
+              <p>  You booked the venue from the <%= @booking.start_date.strftime("%d/%m/%Y") %>to the  <%= @booking.end_date.strftime("%d/%m/%Y") %> (for a total of <%= ((@booking.end_date - @booking.start_date)+1).to_i %> days).
+
+     <p>     Your total price is <b><%= (((@booking.end_date - @booking.start_date)+1).to_i * @booking.venue.daily_rate).to_f %>€.</b>
+     <p>
+
+        <p class="card-text position-absolute bottom-0 start-2 fw-bold">
+
+        <p class="card-text position-absolute bottom-0 end-0 fw-bold">
+
           <% if @booking.qrcode.attached? %>
-<%= cl_image_tag(@booking.qrcode.key, width: 300, alt: "QR code for booking") %>
+          <%= cl_image_tag(@booking.qrcode.key, width: 300, alt: "QR code for booking") %>
           <% end %>
 
       </div>

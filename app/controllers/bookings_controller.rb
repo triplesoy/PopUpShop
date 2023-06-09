@@ -3,6 +3,9 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :destroy, :edit, :update]
 
   def show
+    unless @booking.user == current_user
+      redirect_to venues_path, status: :see_other, alert: "You are not authorized to see this booking"
+    end
   end
 
   def new
@@ -51,6 +54,22 @@ class BookingsController < ApplicationController
       result = background.composite(qr_image) do |c|
         c.compose "Over"    # OverCompositeOp
         c.geometry "+#{qr_position_x}+#{qr_position_y}" # position of QR code on the background image
+      end
+
+      # Draw user's name at the top
+      result.combine_options do |c|
+        c.gravity 'North'
+        c.pointsize '40'
+        c.draw "text 0,60 '#{current_user.first_name} #{current_user.last_name}'"
+        c.fill 'black'
+      end
+
+      # Draw dates at the bottom
+      result.combine_options do |c|
+        c.gravity 'South'
+        c.pointsize '40'
+        c.draw "text 0,40 'From: #{@booking.start_date.strftime("%d/%m/%Y")} to #{@booking.end_date.strftime("%d/%m/%Y")}'"
+        c.fill 'black'
       end
 
       result.write("composite_image.png") # replace with actual path where you want to store it

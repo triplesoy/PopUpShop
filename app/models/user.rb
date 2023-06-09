@@ -7,4 +7,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_one_attached :avatar
+
+  def owns_this_venue?(venue)
+    self.venues.include?(venue)
+  end
 end

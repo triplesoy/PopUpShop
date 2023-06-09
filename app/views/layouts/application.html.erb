@@ -67,6 +67,12 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item text-white" href="<%= edit_user_registration_path %>">Profile</a></li>
 
+                                  <%# # shows hte last booking %>
+                                  <% unless current_user.bookings.empty? %>
+                                    <li><a class="dropdown-item text-white" href="<%= venue_booking_path(current_user.bookings.last.venue, current_user.bookings.last) %>">Last booking</a></li>
+                                  <% end %>
+                                  <%# # shows hte last booking %>
+
                                 <% unless current_user.bookings.empty? %>
                                   <li><a class="dropdown-item text-white" href="<%= my_bookings_path %>">My Bookings</a></li>
                                 <% end %>
