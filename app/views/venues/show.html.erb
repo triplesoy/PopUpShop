@@ -18,21 +18,24 @@
         </div>
       </div>
       <div class="col-12 col-lg-4 my-3">
-      <% unless current_user.owns_this_venue?(@venue) %>
-        <div class="bg-white p-3 shadow">
-          <h3>Add a booking to <%= @venue.title%> </h3>
-          <%= simple_form_for [@venue, @booking], data: { controller: "price" } do |f| %>
-            <%= f.input :start_date, as: :date, html5: true, input_html: { min: Date.current.to_s, id: "start-date", value: Date.today, data: { price_target: "startDate", action: "change->price#updatePrice" } } %>
-            <%= f.input :end_date, as: :date, html5: true, input_html: { min: Date.current.to_s, id: "end-date", value: Date.today, data: { price_target: "endDate", action: "change->price#updatePrice" } } %>
-            <h4>Daily Rate : </h4> <p data-price-target="price"><%= @venue.daily_rate %>€</p>
-            <% if current_user %>
-              <%= f.submit class: "btn btn-outline-dark", data: { price_target: "submit" } %>
-            <% else %>
-            <%= link_to "book", new_user_session_path, class: "btn btn-outline-success" %>
+      <% if current_user.signed_in? %>
+        <% unless current_user.owns_this_venue?(@venue) %>
+          <div class="bg-white p-3 shadow">
+            <h3>Add a booking to <%= @venue.title%> </h3>
+            <%= simple_form_for [@venue, @booking], data: { controller: "price" } do |f| %>
+              <%= f.input :start_date, as: :date, html5: true, input_html: { min: Date.current.to_s, id: "start-date", value: Date.today, data: { price_target: "startDate", action: "change->price#updatePrice" } } %>
+              <%= f.input :end_date, as: :date, html5: true, input_html: { min: Date.current.to_s, id: "end-date", value: Date.today, data: { price_target: "endDate", action: "change->price#updatePrice" } } %>
+              <h4>Daily Rate : </h4> <p data-price-target="price"><%= @venue.daily_rate %>€</p>
+              <% if current_user %>
+                <%= f.submit class: "btn btn-outline-dark", data: { price_target: "submit" } %>
+              <% else %>
+              <%= link_to "book", new_user_session_path, class: "btn btn-outline-success" %>
+              <% end %>
             <% end %>
-          <% end %>
+            </div>
           </div>
-        </div>
+        <% end %>
+
       <% end %>
     </div>
           <div class="col-12 col-lg-4 my-3">

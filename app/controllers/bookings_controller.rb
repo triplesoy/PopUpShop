@@ -13,6 +13,7 @@ class BookingsController < ApplicationController
     # redirect_to venue_path(@list.id), status: :see_other
   end
 
+
   def create
     @booking = Booking.new(booking_params)
     @booking.venue = Venue.find(params[:venue_id])
