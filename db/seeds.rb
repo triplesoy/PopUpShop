@@ -5,9 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-User.destroy_all
-Venue.destroy_all
 Booking.destroy_all
+Venue.destroy_all
+User.destroy_all
 
 pendejos = [["Guillaume", "Soyer"],["Miguel", "Bartolomeu"],["Salim", "atiyeh"], ["Pana", "Cota"]]
 
