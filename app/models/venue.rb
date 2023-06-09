@@ -1,5 +1,7 @@
 class Venue < ApplicationRecord
   belongs_to :user
+  has_many :bookings, dependent: :destroy
+  has_many :invitees, through: :bookings, source: :user
   validates :title, presence: true
   validates :address, presence: true
   validates :description, presence: true
