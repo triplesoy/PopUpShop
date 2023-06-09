@@ -18,8 +18,7 @@
         </div>
       </div>
       <div class="col-12 col-lg-4 my-3">
-      <% if user_signed_in? %>
-        <% unless current_user.owns_this_venue?(@venue) %>
+        <% unless user_signed_in?  || (current_user && current_user.owns_this_venue?(@venue))  %>
           <div class="bg-white p-3 shadow">
             <h3>Add a booking to <%= @venue.title%> </h3>
             <%= simple_form_for [@venue, @booking], data: { controller: "price" } do |f| %>
@@ -31,19 +30,18 @@
               <% else %>
               <%= link_to "book", new_user_session_path, class: "btn btn-outline-success" %>
               <% end %>
-            <% end %>
             </div>
           </div>
         <% end %>
 
       <% end %>
     </div>
-          <div class="col-12 col-lg-4 my-3">
+    <div class="col-12 col-lg-4 my-3">
       <%= link_to "Edit", edit_venue_path(@venue), class: "btn btn-outline-dark" %>
       <%= link_to "Go back", venues_path, class: "btn btn-outline-dark" %>
       <%= link_to "Delete", venue_path(@venue), class: "btn btn-outline-danger",
      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-         </div>
-    </div>
+  </div>
+  </div>
 </div>
 <br><br><br>
