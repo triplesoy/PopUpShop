@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="col-12 col-lg-4 my-3">
-        <% if !user_signed_in || (user_signed_in && !current_user.owns_this_venue?(@venue)) %>
+        <% if !user_signed_in? || (user_signed_in? && !current_user.owns_this_venue?(@venue)) %>
           <div class="bg-white p-3 shadow">
             <h3>Add a booking to <%= @venue.title%> </h3>
             <%= simple_form_for [@venue, @booking], data: { controller: "price" } do |f| %>
