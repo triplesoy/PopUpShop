@@ -50,8 +50,6 @@ pendejos.each do |first_name, last_name|
 end
 
 
-
-
 booking_1 = Booking.create(start_date: Date.parse("2021-06-06"), end_date: Date.parse("2021-06-08"), total_price: 1300, user_id: User.last, venue: Venue.last)
 booking_2 = Booking.create(start_date: Date.parse("2021-06-06"), end_date: Date.parse("2021-06-08"), total_price: 4400, user_id: User.last, venue: Venue.last)
 booking_3 = Booking.create(start_date: Date.parse("2021-06-06"), end_date: Date.parse("2021-06-08"), total_price: 7000, user_id: User.all[2], venue: Venue.last)

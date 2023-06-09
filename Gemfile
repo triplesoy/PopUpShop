@@ -3,6 +3,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
+gem 'rqrcode'
+gem 'rqrcode_png'
+
+gem 'mini_magick'
+
 gem "devise"
 
 gem 'simple-form-datepicker'
