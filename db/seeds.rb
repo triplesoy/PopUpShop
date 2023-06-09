@@ -9,14 +9,14 @@ User.destroy_all
 Venue.destroy_all
 Booking.destroy_all
 
-pendejos = [["Guillaume", "Soyer"],["Miguel", "Bartolomeu"],["Salim", "atiyeh"]]
+pendejos = [["Guillaume", "Soyer"],["Miguel", "Bartolomeu"],["Salim", "atiyeh"], ["Pana", "Cota"]]
 
 pendejos.each do |first_name, last_name|
   pendejito = User.create!(
     first_name: first_name,
     last_name: last_name,
     birthdate: Date.parse("2001-04-25"),
-    email: first_name.downcase + "@venue.com",
+    email: first_name.downcase + "@aol.com",
     password: "password",
     password_confirmation: "password"
   )
@@ -56,3 +56,4 @@ booking_1 = Booking.create(start_date: Date.parse("2021-06-06"), end_date: Date.
 booking_2 = Booking.create(start_date: Date.parse("2021-06-06"), end_date: Date.parse("2021-06-08"), total_price: 4400, user_id: User.last, venue: Venue.last)
 booking_3 = Booking.create(start_date: Date.parse("2021-06-06"), end_date: Date.parse("2021-06-08"), total_price: 7000, user_id: User.all[2], venue: Venue.last)
 booking_4 = Booking.create(start_date: Date.parse("2021-06-06"), end_date: Date.parse("2021-06-08"), total_price: 3600, user_id: User.all[3], venue: Venue.last)
+booking_4 = Booking.create(start_date: Date.parse("2021-06-06"), end_date: Date.parse("2021-06-08"), total_price: 3600, user_id: User.all[4], venue: Venue.last)
