@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="col-12 col-lg-4 my-3">
-      <% if current_user.signed_in? %>
+      <% if user_signed_in? %>
         <% unless current_user.owns_this_venue?(@venue) %>
           <div class="bg-white p-3 shadow">
             <h3>Add a booking to <%= @venue.title%> </h3>
