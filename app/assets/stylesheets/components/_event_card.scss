@@ -5,7 +5,7 @@ body {
 }
 
 .card {
-  background: #e9e3e364;
+  background: hsla(0, 17%, 98%, 0.938);
   color: rgba(12, 12, 12, 0.8);
   margin-bottom: 2rem;
   box-shadow: 0 0 10px rgba(48, 47, 47, 0.2);
@@ -19,6 +19,11 @@ body {
   width: 100%;
   height: 180px;
   object-fit: cover;
+}
+
+.card-img-top.venue-img {
+  width: 100%;
+  height: 300px;
 }
 
 .banner {

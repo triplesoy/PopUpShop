@@ -2,18 +2,15 @@
   <h1>Venues</h1>
   <div class="row">
     <% @venues.each do |venue| %>
-      <div class="col-lg-3 my-3">
+      <div class="col-lg-4 my-3">
         <div class="card" style="width: 18rem; height: 22rem;">
           <% if venue.photos.attached? %>
             <img src="<%= cl_image_path venue.photos.first.key %>" class="card-img-top" alt="...">
           <% end %>
           <div class="card-body position-relative">
             <h5 class="card-title"><%= venue.title %></h5>
-            <h6 class="card-subtitle mb-2 text-muted"></h6>
+            <h6 class="card-subtitle mb-2 text-muted"><%= venue.venue_type %> <i class="<%= @categories[venue.venue_type] %>"></i></h6>
             <p class="card-text" style="position: absolute; bottom: 0; left: 0; margin: 8px;"><%= venue.daily_rate %>€</p>
-            <div class="d-flex justify-content-center" style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);">
-              <%= venue.venue_type %>
-            </div>
             <%= link_to "Details", venue_path(venue), class: "btn btn-outline-dark position-absolute bottom-0 end-0 m-2" %>
           </div>
         </div>

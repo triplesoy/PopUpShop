@@ -4,10 +4,22 @@ class VenuesController < ApplicationController
 
   def index
     @venues = Venue.all
+    @categories = {
+      "Bar/Club" => "fa-solid fa-beer-mug-empty",
+      "Office" => "fa-regular fa-building",
+      "Restaurant" => "fa-solid fa-utensils",
+      "Storefront" => "fa-solid fa-shop"
+    }
   end
 
   def show
     @booking = Booking.new
+    @categories = {
+      "Bar/Club" => "fa-solid fa-beer-mug-empty",
+      "Office" => "fa-regular fa-building",
+      "Restaurant" => "fa-solid fa-utensils",
+      "Storefront" => "fa-solid fa-shop"
+    }
   end
 
   def new

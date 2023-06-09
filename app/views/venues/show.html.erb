@@ -6,13 +6,28 @@
           <div class="banner">
             <% if @venue.photos.attached? %>
               <% @venue.photos.each do |photo| %>
-                <%= cl_image_tag photo.key, class: "card-img-top" %>
+                <%= cl_image_tag photo.key, class: "card-img-top venue-img" %>
               <% end %>
             <% end %>
             <div class="card-body">
               <h5 class="card-title"><%= @venue.title %></h5>
               <h6 class="card-subtitle mb-2 text-muted"></h6>
-              <p class="card-text"><%= @venue.description %></p>
+              <p class="card-text"><%= @venue.description %> </p>
+              <div>
+                <p><%= @venue.address %></p>
+                <p><%= @venue.venue_type %> <i class="<%= @categories[@venue.venue_type] %>"></i></p>
+                <div class="d-flex justify-content-between">
+                  <% if @venue.has_ac %>
+                    <p><i class="fa-regular fa-snowflake"></i></p>
+                  <% end %>
+                  <% if @venue.has_parking %>
+                    <p><i class="fa-solid fa-square-parking"></i></p>
+                  <% end %>
+                  <% if @venue.has_internet %>
+                    <p><i class="fa-solid fa-wifi"></i></p>
+                  <% end %>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -40,4 +55,3 @@
     </div>
 </div>
 <br><br><br>
-
